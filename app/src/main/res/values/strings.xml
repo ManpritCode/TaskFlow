@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TaskFlow</string>
+    <string name="selected_item_in_topbar">select</string>
+    <string name="add">+</string>
+    <string name="NewTask">New Task</string>
+    <string name="EnterTaskHere">Enter Task Here</string>
+    <string name="whatIsToBeDone">What is to be done?</string>
+    <string name="your_label_text">Your Label Text</string>
+    <string name="due_date">Due date</string>
+    <string name="date_not_set">Date not set</string>
+    <string name="addtoList">Add to List</string>
+    <string name="newList">New List</string>
+    <string name="enterListName">Enter List Name</string>
+    <string name="Add">ADD</string>
+    <string name="Cancelbtn">Cancel</string>
+</resources>

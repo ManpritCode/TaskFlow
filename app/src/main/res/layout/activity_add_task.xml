@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background_color"
+    tools:context=".activities.AddTaskActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#016dad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="TODO"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/newTaskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="@string/NewTask"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+
+        <ImageView
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:src="@drawable/baseline_delete_24" />
+
+        <ImageView
+            android:id="@+id/shareBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:src="@drawable/baseline_share_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/whatIsToBeDone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/whatIsToBeDone"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/TopGuideline" />
+
+    <EditText
+        android:id="@+id/enter_task_here"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/EnterTaskHere"
+        android:textColor="@color/white"
+        android:textColorHint="#B5ADAD"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/whatIsToBeDone" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/Due_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="@string/due_date"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/enter_task_here" />
+
+    <TextView
+        android:id="@+id/date_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/date_not_set"
+        android:textColor="@color/white"
+        android:textColorHint="#B5ADAD"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/Due_date" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1.2dp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/date_picker"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_goneMarginTop="@dimen/_4sdp" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/add_to_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="@string/addtoList"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/date_picker" />
+
+    <Spinner
+        android:id="@+id/addtoListSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/newListCreate"
+        app:layout_constraintTop_toBottomOf="@id/add_to_list"/>
+
+
+
+
+    <TextView
+        android:id="@+id/dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:drawableRight="@drawable/baseline_arrow_drop_down_24"
+        app:layout_constraintBottom_toBottomOf="@id/addtoListSpinner"
+        app:layout_constraintRight_toRightOf="@id/addtoListSpinner"
+        app:layout_constraintTop_toTopOf="@id/addtoListSpinner" />
+
+    <ImageView
+        android:id="@+id/newListCreate"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:src="@drawable/baseline_playlist_add_24"
+        app:layout_constraintBottom_toBottomOf="@id/addtoListSpinner"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/add_to_list" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addListIntoTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="+"
+        android:src="@drawable/baseline_check_24"
+        app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_30sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_60sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_30sdp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
