@@ -13,4 +13,12 @@
     <string name="enterListName">Enter List Name</string>
     <string name="Add">ADD</string>
     <string name="Cancelbtn">Cancel</string>
+    <string name="TaskList">Task Lists</string>
+    <string name="AddInBatchMode">Add In Batch Mode</string>
+    <string name="removesAds">Remove Ads</string>
+    <string name="moreApps">More Apps</string>
+    <string name="sendFeedback">Send Feedback</string>
+    <string name="followUS">Follow US</string>
+    <string name="inviteFriendToTheApp">Invite  friends To THe App</string>
+    <string name="settings">Settings</string>
 </resources>

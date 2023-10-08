@@ -2,7 +2,6 @@ package com.example.taskflow.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
@@ -20,7 +19,7 @@ import com.example.taskflow.databinding.ActivityMainBinding
 import com.example.taskflow.models.TaskLists
 import com.example.taskflow.myInterfaces.FinishedTasksInterface
 import com.example.taskflow.view_modals.MainViewModal
-import com.example.taskflow.view_modals.ViewModalFactory
+import com.example.taskflow.view_modals.factories.ViewModalFactory
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity(), FinishedTasksInterface {
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
             ViewModelProvider(this, ViewModalFactory(repository))[MainViewModal::class.java]
         setContentView(binding.root)
         setDefaultListIntoTable()
-         binding.spinner.setSelection(1)
+        binding.spinner.setSelection(1)
         topBarDropDown()
 
         val materialToolbar: MaterialToolbar = findViewById(R.id.topAppBar)
@@ -46,15 +45,16 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
         }
         materialToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.more -> {
-                    Toast.makeText(this, "Favorites Clicked", Toast.LENGTH_SHORT).show()
+                R.id.taskLists -> {
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            TaskListsEditAndDeleteActivity::class.java
+                        )
+                    )
                     true
                 }
 
-                R.id.about -> {
-                    Toast.makeText(this, "Favorites Clicked", Toast.LENGTH_SHORT).show()
-                    true
-                }
                 else -> false
             }
         }
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
     private fun setDefaultListIntoTable() {
         mainViewModal.check()
     }
+
     private fun topBarDropDown() {
 
         mainViewModal.getTasks().observe(this, Observer { it ->
@@ -80,41 +81,54 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
                     AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                         var index: Int? = null
-                        if (p2 == 1){
-                             allListValue = 1
+                        if (p2 == 1) {
+                            allListValue = 1
                         }
-                        if( p2 > 1) {
+                        if (p2 > 1) {
                             allListValue = 3
                         }
-                        if (p2 == it.size+1){
+                        if (p2 == it.size + 1) {
                             allListValue = 2
                         }
 
                         if (p2 == 1) {
-                            mainViewModal.getAllTaskFromDB(false).observe(this@MainActivity, Observer {
-                                if(allListValue == 1){
-                                    binding.TaskListRecyclerView.adapter = TaskListRecyclerViewAdapter(this@MainActivity, it, this@MainActivity
-                                        )
-                                }
-                            })
-                        } else if(p2 > 1 && p2 < it.size+1) {
-                            index = p2 - 1
-                            val clickedListName = it[index!!].listName
-                            mainViewModal.getTaskList(clickedListName, false).observe(this@MainActivity, Observer {
-                                    if(allListValue == 3){
-                                        binding.TaskListRecyclerView.adapter = TaskListRecyclerViewAdapter(this@MainActivity, it, this@MainActivity
+                            mainViewModal.getAllTaskFromDB(false)
+                                .observe(this@MainActivity, Observer {
+                                    if (allListValue == 1) {
+                                        binding.TaskListRecyclerView.adapter =
+                                            TaskListRecyclerViewAdapter(
+                                                this@MainActivity, it, this@MainActivity
                                             )
                                     }
                                 })
-                        } else{
-                            mainViewModal.getFinshedTasks(true).observe(this@MainActivity, Observer {
-                                if(allListValue == 2){
+                        } else if (p2 > 1 && p2 < it.size + 1) {
+                            index = p2 - 1
+                            val clickedListName = it[index!!].listName
+                            mainViewModal.getTaskList(clickedListName, false)
+                                .observe(this@MainActivity, Observer {
+                                    if (allListValue == 3) {
+                                        binding.TaskListRecyclerView.adapter =
+                                            TaskListRecyclerViewAdapter(
+                                                this@MainActivity, it, this@MainActivity
+                                            )
+                                    }
+                                })
+                        } else {
+                            mainViewModal.getFinshedTasks(true)
+                                .observe(this@MainActivity, Observer {
+                                    if (allListValue == 2) {
 
-                                    binding.TaskListRecyclerView.adapter = TaskListRecyclerViewAdapter(this@MainActivity, it, this@MainActivity)
-                                }
-                            })
+                                        binding.TaskListRecyclerView.adapter =
+                                            TaskListRecyclerViewAdapter(
+                                                this@MainActivity,
+                                                it,
+                                                this@MainActivity
+                                            )
+                                    }
+                                })
                         }
                     }
+
                     override fun onNothingSelected(p0: AdapterView<*>?) {}
                     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {}
                 }

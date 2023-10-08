@@ -6,4 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".activities.TaskListsEditAndDeleteActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#016dad"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TaskList"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+
+        <ImageView
+            android:id="@+id/newListCreatedbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:src="@drawable/baseline_format_list_bulleted_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEditAndDelete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topToolbar"
+         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

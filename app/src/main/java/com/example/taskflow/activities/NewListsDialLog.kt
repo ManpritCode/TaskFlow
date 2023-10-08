@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class NewListsDialLog(context: Context, private val appcontext: Context, val set: Set) :
+class NewListsDialLog(context: Context, private val appcontext: Context) :
     Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,6 @@ class NewListsDialLog(context: Context, private val appcontext: Context, val set
             if (text == "") {
                 Toast.makeText(context, "Please Enter List Name", Toast.LENGTH_SHORT).show()
             } else {
-                set.setselection()
                 val listType: AddtoListItems = AddtoListItems(0, text)
                 val dao = TaskDatabase.geTaskDatabase(appcontext).daoInterface()
                 GlobalScope.launch(Dispatchers.IO) {

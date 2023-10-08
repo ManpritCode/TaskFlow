@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/about"
-        android:title="about"
+    <item android:id="@+id/taskLists"
+        android:title="@string/TaskList"
         />
-    <item android:id="@+id/more"
-        android:title="more"
+    <item android:id="@+id/addInBatchMode"
+        android:title="@string/AddInBatchMode"
         />
-<item android:id="@+id/home"
-    android:title="Home"
+<item android:id="@+id/removeAds"
+     
+    android:title="@string/removesAds"
     />
+    <item android:id="@+id/moreApps"
+        android:title="@string/moreApps"
+        />
+    <item android:id="@+id/sendFeedback"
+        android:title="@string/sendFeedback"
+        />
+    <item android:id="@+id/followUs"
+        android:title="@string/followUS"
+        />
+    <item android:id="@+id/inviteFriendToTheApp"
+        android:title="@string/inviteFriendToTheApp"
+        />
+    <item android:id="@+id/settings"
+        android:title="@string/settings"
+        />
+
 </menu>

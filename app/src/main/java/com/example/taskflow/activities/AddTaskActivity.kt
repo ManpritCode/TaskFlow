@@ -14,12 +14,11 @@ import com.example.taskflow.TaskFlowRepository.TaskRepository
 import com.example.taskflow.adapters.SpinnerCustomsdapter
 import com.example.taskflow.databinding.ActivityAddTaskBinding
 import com.example.taskflow.models.TaskLists
-import com.example.taskflow.myInterfaces.Set
-import com.example.taskflow.view_modals.AddNewTaskFactory
+import com.example.taskflow.view_modals.factories.AddNewTaskFactory
 import com.example.taskflow.view_modals.AddNewTaskViewModal
 import java.util.Calendar
 
-class AddTaskActivity : AppCompatActivity() ,Set{
+class AddTaskActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityAddTaskBinding.inflate(layoutInflater)
     }
@@ -54,7 +53,7 @@ class AddTaskActivity : AppCompatActivity() ,Set{
         setContentView(binding.root)
 
         binding.newListCreate.setOnClickListener {
-            val newListsDialLog = NewListsDialLog(this, applicationContext,this)
+            val newListsDialLog = NewListsDialLog(this, applicationContext)
             newListsDialLog.show()
         }
 
@@ -194,11 +193,7 @@ class AddTaskActivity : AppCompatActivity() ,Set{
 
     }
 
-    override fun setselection() {
-        addNewTaskViewModal?.getTaskList()?.observe(this, Observer {
-            binding.addtoListSpinner.setSelection(it.size)
-        })
-    }
+
 
 
 }

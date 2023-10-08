@@ -32,6 +32,13 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:spinnerMode="dropdown" />
+            <ImageView
+                android:id="@+id/searchList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_search_24"
+                android:layout_gravity="right"
+                />
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
