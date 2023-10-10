@@ -26,6 +26,13 @@ class TaskRepository( val taskDAO: TaskDAO) {
     fun getFinshedTasks(taskStatus:Boolean):LiveData<List<TaskLists>>{
         return taskDAO.finishedTask(taskStatus)
     }
+    fun getTasksByListName(listName:String): LiveData<List<TaskLists>>{
+         return taskDAO.getTasksByListName(listName)
+    }
+     suspend fun deleteTasksAndListsByListName(listName: String){
+        taskDAO.deleteTasksAndListsByListName(listName)
+    }
+
     suspend fun upDateTask(taskLists: TaskLists){
         taskDAO.upDateTask(taskLists)
 
@@ -43,6 +50,10 @@ class TaskRepository( val taskDAO: TaskDAO) {
     }
     suspend fun insertTaskName(addtoListItems: AddtoListItems){
         taskDAO.insertTableListName(addtoListItems)
+    }
+
+    suspend fun updateTasksAndListsByListName(listName: String){
+        taskDAO.updateListsByListNameFromDefaultList(listName)
     }
 
 

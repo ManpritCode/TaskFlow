@@ -61,7 +61,7 @@ class SpinnerCustomsdapter(
         if (homeAdded) {
             if (position == 0) {
                 spinnerListName.text = homeString
-                spinnerListName.setBackgroundColor(ContextCompat.getColor(context, R.color.black))
+                spinnerListName.setBackgroundColor(ContextCompat.getColor(context, R.color.appblue))
             } else if (position == taskListsName!!.size+1) {
                 spinnerListName.text = "Finished"
             } else {

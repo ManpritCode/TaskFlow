@@ -74,14 +74,13 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
     private fun topBarDropDown() {
 
         mainViewModal.getTasks().observe(this, Observer { it ->
-            binding.spinner.adapter = SpinnerCustomsdapter(it, this, "Home", true)
-            binding.spinner.setSelection(1)
+            binding.spinner.adapter = SpinnerCustomsdapter(it, this, "All Lists", true)
             binding.spinner.onItemSelectedListener =
                 object : AdapterView.OnItemClickListener,
                     AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                         var index: Int? = null
-                        if (p2 == 1) {
+                        if (p2 == 0) {
                             allListValue = 1
                         }
                         if (p2 > 1) {
@@ -91,7 +90,7 @@ class MainActivity : AppCompatActivity(), FinishedTasksInterface {
                             allListValue = 2
                         }
 
-                        if (p2 == 1) {
+                        if (p2 == 0) {
                             mainViewModal.getAllTaskFromDB(false)
                                 .observe(this@MainActivity, Observer {
                                     if (allListValue == 1) {

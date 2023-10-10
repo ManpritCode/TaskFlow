@@ -38,15 +38,12 @@ class MainViewModal(val taskRepository: TaskRepository) : ViewModel() {
              val isEmpty = taskRepository.getCount()
               if (isEmpty){
                   val defualtTaskList:MutableList<AddtoListItems> = mutableListOf()
-                  val allList  = AddtoListItems(0,"All Lists")
                   val defaultList =  AddtoListItems(0,"Default")
                   val personal =  AddtoListItems(0,"Personal")
                   val shopping =  AddtoListItems(0,"Shopping")
                   val wishlist =  AddtoListItems(0,"Wishlist")
                   val work =  AddtoListItems(0,"Work")
 
-
-                  defualtTaskList.add(allList)
                   defualtTaskList.add(defaultList)
                   defualtTaskList.add(personal)
                   defualtTaskList.add(shopping)

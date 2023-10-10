@@ -53,7 +53,7 @@ class AddTaskActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.newListCreate.setOnClickListener {
-            val newListsDialLog = NewListsDialLog(this, applicationContext)
+            val newListsDialLog = NewListsDialLog(this, applicationContext,false)
             newListsDialLog.show()
         }
 
