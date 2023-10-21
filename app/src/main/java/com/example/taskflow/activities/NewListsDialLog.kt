@@ -3,10 +3,13 @@ package com.example.taskflow.activities
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import com.example.taskflow.Database.TaskDatabase
 import com.example.taskflow.R
 import com.example.taskflow.models.AddtoListItems
@@ -46,22 +49,20 @@ class NewListsDialLog(context: Context, private val appcontext: Context,
             if (text == "") {
                 Toast.makeText(context, "Please Enter List Name", Toast.LENGTH_SHORT).show()
             } else if(setDialLogType){
-                editAndDeleteTasksViewModal?.updateTasksAndListsByListName("Manpreet")
-
+                listName?.let { it1 ->
+                    editAndDeleteTasksViewModal?.updateTasksAndListsByListName(
+                        listName!!,text)
+                }
                 dismiss()
             }
             else {
-                val listType: AddtoListItems = AddtoListItems(0, text)
+                val listType= AddtoListItems(0, text)
                 val dao = TaskDatabase.geTaskDatabase(appcontext).daoInterface()
                 GlobalScope.launch(Dispatchers.IO) {
                     dao.insertTableListName(listType)
                     dismiss()
                 }
             }
-
-
         }
-
     }
-
 }

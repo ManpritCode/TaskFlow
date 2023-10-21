@@ -52,8 +52,8 @@ class TaskRepository( val taskDAO: TaskDAO) {
         taskDAO.insertTableListName(addtoListItems)
     }
 
-    suspend fun updateTasksAndListsByListName(listName: String){
-        taskDAO.updateListsByListNameFromDefaultList(listName)
+    suspend fun updateTasksAndListsByListName(listName: String ,updatedName:String){
+        taskDAO.updateListsByListNameFromDefaultList(listName,updatedName)
     }
 
 

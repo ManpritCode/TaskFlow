@@ -22,9 +22,9 @@ class EditAndDeleteTasksViewModal( val taskRepository: TaskRepository):ViewModel
             taskRepository.deleteTasksAndListsByListName(listName)
         }
     }
-     fun updateTasksAndListsByListName(listName: String){
+     fun updateTasksAndListsByListName(listName: String,updatedName:String){
          viewModelScope.launch(Dispatchers.IO) {
-             taskRepository.updateTasksAndListsByListName(listName)
+             taskRepository.updateTasksAndListsByListName(listName,updatedName)
          }
     }
 

@@ -51,15 +51,16 @@ interface TaskDAO {
          deleteListsByListNameFromDefaultList(listName)
      }
 
-    @Query("UPDATE AddtoListItems SET listName = :listName WHERE listName = :listName")
-    fun updateListsByListNameFromDefaultList(listName: String)
-    @Query("UPDATE defaultList SET listName = :listName WHERE listName = :listName")
-    fun updateTaskByListName(listName: String)
+    @Query("UPDATE AddtoListItems SET listName = :updatedName WHERE listName = :listName")
+    fun updateListsByListNameFromDefaultList(listName:String ,updatedName:String)
+
+    @Query("UPDATE defaultList SET listName = :updatedName WHERE listName = :listName")
+    fun updateTaskByListName(listName:String ,updatedName:String)
 
     @Transaction
-    suspend fun updateTasksAndListsByListName(listName: String){
-        updateTaskByListName(listName)
-        updateListsByListNameFromDefaultList(listName)
+    suspend fun updateTasksAndListsByListName(listName: String ,updatedName:String){
+        updateTaskByListName(listName,updatedName)
+        updateListsByListNameFromDefaultList(listName,updatedName)
     }
 
     @Delete

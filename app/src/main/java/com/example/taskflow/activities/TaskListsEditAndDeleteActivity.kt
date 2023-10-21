@@ -75,9 +75,11 @@ class TaskListsEditAndDeleteActivity : AppCompatActivity(), DeleteTasksAndListsB
 
     override fun deleteTasksAndListsByListName(listName: String) {
         editAndDeleteTasksViewModal.deleteTasksAnsListsByListName(listName)
+
     }
 
     override fun updateTasksAndListsByListName(listName: String) {
+
         val newListsDialLog = NewListsDialLog(this, applicationContext,true,editAndDeleteTasksViewModal,listName)
         newListsDialLog.show()
     }

@@ -41,6 +41,7 @@ class EditAndDeletTaskListRvAdapter(val context: Context, private val taskList:A
         }
         holder.editBtn.setOnClickListener {
             deleteTasksAndListsByListName.updateTasksAndListsByListName(text.listname)
+            notifyDataSetChanged()
         }
     }
     class viewHolder(itemview:View):ViewHolder(itemview){
