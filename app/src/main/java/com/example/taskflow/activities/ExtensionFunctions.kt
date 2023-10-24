@@ -1,9 +1,11 @@
 package com.example.taskflow.activities
 
-import android.view.View
-
 fun clickMthof(){
+
+    var abc = 90
   var xyz = "m"
+    var ghghdsd="sdhdghsd"
+    var sddsds="4554"
 }
 
 fun View.myclicks(block : ()-> Unit)=setOnClickListener{
