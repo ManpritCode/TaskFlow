@@ -10,6 +10,6 @@ fun View.myclicks(block : ()-> Unit)=setOnClickListener{
   block.invoke()
 }
 
-fun View.myclicks2(block : ()-> Unit)=setOnClickListener{
+fun View.myclicks4(block : ()-> Unit)=setOnClickListener{
   block.invoke()
 }
